@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập tài khoản</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="header-top">
+    <div class="breadcrumb">
+        Trang chủ / Đăng nhập tài khoản
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <h1>ĐĂNG NHẬP TÀI KHOẢN</h1>
+        <p>Bạn chưa có tài khoản ?
+            <a href="register.html">Đăng ký tại đây.</a></p>
+
+        <form action="">
+            <label>Email <span>*</span></label>
+            <input type="email" placeholder="Email" required>
+
+            <label>Mật khẩu <span>*</span></label>
+            <input type="password" placeholder="Mật khẩu" required>
+
+            <div class="quenmk">
+                <small>Quên mật khẩu? Nhấn vào
+                    <a href="forgot-password.html">đây</a></small>
+            </div>
+            <button class="submit">Đăng nhập</button>
+        </form>
+        <p class="hoac">Hoặc đăng nhập bằng</p>
+        <div class="social-login">
+            <button class="fb"><i class="fa-brands fa-facebook"></i> Facebook</button>
+            <button class="gg"><i class="fa-brands fa-google"></i> Google</button>
+        </div>
+    </div>
+</main>
+<script src="login.js"></script>
+</body>
+</html>
