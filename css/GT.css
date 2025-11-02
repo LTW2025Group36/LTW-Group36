@@ -1,0 +1,22 @@
+/* ===== TOC style giống ảnh ===== */
+.toc{margin:16px auto;border:1px solid #e5e7eb;border-radius:8px;background:#f9fafb}
+.toc_title{margin:0;padding:10px 12px;border-bottom:1px solid #e5e7eb;font-weight:700}
+#toc_content{padding:10px 12px}
+#toc_content ul{list-style:none;margin:0;padding-left:0}
+#toc_content li{
+margin:6px 0
+display: flex;            /* cho số và chữ nằm cùng hàng */
+align-items: baseline;
+gap: 6px;                 /* khoảng cách nhỏ, gọn */}
+#toc_content a{color:#16a34a;text-decoration:none}
+#toc_content a:hover{text-decoration:underline}
+#toc_content .active>a{font-weight:700;text-decoration:underline}
+.toc-num{display:inline-block;min-width:2.2em;color:#111;margin-right:4px}
+
+/* cuộn mượt */
+html{scroll-behavior:smooth}
+/* Mục con thụt vào vừa phải */
+#toc_content ul ul{ margin-left: 14px; }
+#toc_content a{ color: #15803d; }       /* xanh đậm hơn */
+#toc_content .active > a{ font-weight: 700; text-decoration: underline; }
+
