@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng </title>
+
+    <link rel="stylesheet" href="/css/GH.css">
+    <link rel ="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+     <div id="main-header"></div>  
+    <main class="container">
+    <h1 class="page-title">Giỏ hàng</h1>
+
+    <div class="cart">
+      <!-- CỘT TRÁI: DANH SÁCH SẢN PHẨM -->
+      <section class="cart-items" aria-label="Danh sách sản phẩm trong giỏ">
+            <!-- ITEM 1 -->
+        <article class="cart-item" data-price="17000">
+        <button class="remove-btn" aria-label="Xóa sản phẩm">Xóa</button>
+        <img class="item-thumb"
+            src="https://bizweb.dktcdn.net/thumb/large/100/435/899/products/bap-my-1739365528524.jpg"
+            alt="Bắp mỹ (một cặp)" />
+        <div class="item-info">
+            <h2 class="item-name">Bắp mỹ (một cặp)</h2>
+            <div class="item-row">
+            <span class="item-unit-price" aria-label="Giá">17.000đ</span>
+            <div class="quantity-control" role="group" aria-label="Chọn số lượng">
+                <button class="qty-btn minus" aria-label="Giảm số lượng">−</button>
+                <input class="qty-input" type="text" inputmode="numeric" value="2" aria-live="polite" />
+                <button class="qty-btn plus" aria-label="Tăng số lượng">+</button>
+            </div>
+            <span class="item-subtotal" aria-label="Tổng tiền sản phẩm">34.000đ</span>
+            </div>
+        </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="cart-item" data-price="25000">
+        <button class="remove-btn" aria-label="Xóa sản phẩm">Xóa</button>
+        <img class="item-thumb"
+            src="https://bizweb.dktcdn.net/100/435/899/products/thom-khom-1739454807453.jpg?v=1739454823637"
+            alt="Quả thơm trái lớn" />
+        <div class="item-info">
+            <h2 class="item-name">Quả thơm trái lớn</h2>
+            <div class="item-row">
+            <span class="item-unit-price" aria-label="Giá">25.000đ</span>
+            <div class="quantity-control" role="group" aria-label="Chọn số lượng">
+                <button class="qty-btn minus" aria-label="Giảm số lượng">−</button>
+                <input class="qty-input" type="text" inputmode="numeric" value="1" aria-live="polite" />
+                <button class="qty-btn plus" aria-label="Tăng số lượng">+</button>
+            </div>
+            <span class="item-subtotal" aria-label="Tổng tiền sản phẩm">25.000đ</span>
+            </div>
+        </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="cart-item" data-price="27000">
+        <button class="remove-btn" aria-label="Xóa sản phẩm">Xóa</button>
+        <img class="item-thumb"
+            src="https://bizweb.dktcdn.net/100/435/899/products/bap-cai-mem-1740040162109.jpg?v=1740040214717"
+            alt="Bắp cải mềm Đà Lạt - 1 cây" />
+        <div class="item-info">
+            <h2 class="item-name">Bắp cải mềm Đà Lạt - 1 cây</h2>
+            <div class="item-row">
+            <span class="item-unit-price" aria-label="Giá">27.000đ</span>
+            <div class="quantity-control" role="group" aria-label="Chọn số lượng">
+                <button class="qty-btn minus" aria-label="Giảm số lượng">−</button>
+                <input class="qty-input" type="text" inputmode="numeric" value="3" aria-live="polite" />
+                <button class="qty-btn plus" aria-label="Tăng số lượng">+</button>
+            </div>
+            <span class="item-subtotal" aria-label="Tổng tiền sản phẩm">81.000đ</span>
+            </div>
+        </div>
+        </article>
+
+      </section>
+
+      <!-- CỘT PHẢI: TÓM TẮT -->
+      <aside class="cart-summary" aria-label="Tóm tắt đơn hàng">
+        <div class="summary-row">
+          <span>Tổng tiền</span>
+          <strong class="cart-total">326.000đ</strong>
+        </div>
+
+        <button class="checkout-btn" type="button">Tiến hành thanh toán</button>
+        <a class="continue-link" href="#" aria-label="Tiếp tục mua hàng">← Tiếp tục mua hàng</a>
+      </aside>
+    </div>
+  </main>
+
+    <div id="main-footer"></div>
+    <script src="/js/GH.js"></script>
+    <script src="/js/header-footer.js"></script>
+</body>
+
+</html>
