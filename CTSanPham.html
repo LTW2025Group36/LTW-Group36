@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm </title>
+
+    <link rel="stylesheet" href="/css/CT_SP.css">
+    <link rel ="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body> 
+    <div id="main-header"></div>
+    <main class="sp container">
+
+  <section class="sp-grid" aria-labelledby="sp-title">
+    <!-- CỘT TRÁI: GALLERY -->
+    <aside class="sp-gallery" aria-label="Bộ sưu tập ảnh sản phẩm">
+      <div class="sp-photo-main" id="photoMain" role="img" aria-label="Ảnh sản phẩm">
+        <img id="mainImg" src="images/demosanpham.jpg" alt="Demo Sản Phảm - ảnh 1">
+        <button class="nav prev" aria-label="Ảnh trước" data-dir="-1">‹</button>
+        <button class="nav next" aria-label="Ảnh kế tiếp" data-dir="1">›</button>
+      </div>
+
+      <div class="sp-thumbs" id="thumbs" role="list">
+        <button class="thumb is-active" role="listitem" data-src="images/demosanpham.jpg" aria-label="Ảnh 1">
+          <img src="images/demosanpham.jpg" alt="">
+        </button>
+        <button class="thumb" role="listitem" data-src="images/demosanpham.jpg" aria-label="Ảnh 2">
+          <img src="images/demosanpham.jpg" alt="">
+        </button>
+        <button class="thumb" role="listitem" data-src="images/demosanpham.jpg" aria-label="Ảnh 3">
+          <img src="images/demosanpham.jpg" alt="">
+        </button>
+        <button class="thumb" role="listitem" data-src="images/demosanpham.jpg" aria-label="Ảnh 4">
+          <img src="images/demosanpham.jpg" alt="">
+        </button>
+      </div>
+    </aside>
+
+    <!-- CỘT PHẢI: THÔNG TIN & MUA HÀNG -->
+    <article class="sp-info">
+      <h1 id="sp-title" class="sp-title">Tên Sản Phẩm DEMO</h1>
+
+      <div class="sp-meta">
+        <span>Thương hiệu: <a href="#" class="link">Farmily</a></span>
+        <span class="dot">•</span>
+        <span>Tình trạng: <strong class="status in-stock">Còn hàng</strong></span>
+      </div>
+
+      <div class="sp-price-box">
+        <div class="sp-price" id="price">25.000đ</div>
+        <div class="sp-note">Giao trong ngày ở HCM cho đơn đặt trước 12–16h.</div>
+      </div>
+
+      <form class="sp-purchase" id="purchaseForm">
+        <!-- KHỐI LƯỢNG -->
+        <label class="field">
+          <span class="label">Khối lượng:</span>
+          <select id="weightSelect" class="select">
+            <option value="0.1" data-price="25000">175g</option>
+            <option value="0.5"   data-price="125000">500g</option>
+            <option value="1"     data-price="250000">1kg</option>
+          </select>
+        </label>
+
+        <!-- SỐ LƯỢNG -->
+        <div class="field qty-field">
+          <span class="label">Số lượng:</span>
+          <div class="qty">
+            <button type="button" class="qty-btn" data-step="-1" aria-label="Giảm">−</button>
+            <input id="qtyInput" class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Số lượng">
+            <button type="button" class="qty-btn" data-step="1" aria-label="Tăng">+</button>
+          </div>
+        </div>
+
+        <!-- NÚT THÊM GIỎ -->
+        <div class="actions">
+          <button type="submit" class="btn-primary">THÊM VÀO GIỎ HÀNG</button>
+        </div>
+        <!-- Thông điệp phản hồi -->
+        <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      </form>
+    </article>
+  </section>
+
+  <!-- MÔ TẢ -->
+  <section class="sp-desc card" aria-labelledby="desc-title">
+    <h2 id="desc-title">Mô tả</h2>
+    <ul class="desc-list">
+      <li>Sản xuất theo tiêu chuẩn an toàn, VietGAP, nguồn từ các farm Đà Lạt, Tây Nguyên, miền Đông & Tây.</li>
+      <li>Sơ chế, đóng gói, giao trong ngày. Thu hoạch buổi sáng – giao trong 12–24h.</li>
+      <li><strong>Lưu ý:</strong> </li>
+      <li>Trọng lượng có thể chênh lệch ~5% do đặc tính nông sản.</li>
+      <li>Sản phẩm nhận được có thể khác với hình ảnh về màu sắc và kích thước tùy theo mùa vụ hoặc thời tiết nhưng vẫn đảm bảo chất lượng.</li>
+      <li>Nếu có yêu cầu đặc biệt về rửa/lựa size, vui lòng ghi chú khi đặt hàng.</li>
+      <li>Hotline/Zalo: 0332991664 — Email: Farmily@gmail.com</li>
+    </ul>
+  </section>
+</main>
+
+    
+    
+
+ <div id="main-footer"></div>
+    <script src="/js/CT_SP.js"></script>
+    <script src="/js/header-footer.js"></script>
+</body>
+
+</html>
