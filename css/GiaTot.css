@@ -137,7 +137,6 @@ html, body {
 /* Sửa phần tử a trong header gây tràn ngang */
 #main-header header a {
     max-width: 100%;
-    display: inline-block;
     overflow: visible;
     box-sizing: border-box;
 
