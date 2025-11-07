@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - Rau Củ Quả Hữu Cơ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/SanPham.css">
+</head>
+<body>
+    <div id="main-header"></div>
+     <div class="products-container">
+        <!-- Sidebar -->
+        <aside class="products-sidebar">
+            <!-- Khu vực -->
+            <div class="filter-section">
+                <h3 class="filter-section-title">KHU VỰC</h3>
+                <div class="filter-divider"></div>
+                <ul class="filter-list">
+                    <li class="filter-item">
+                        <a href="#" class="filter-link">Hà Nội</a>
+                        <span class="filter-count">(1737)</span>
+                    </li>
+                    <li class="filter-item">
+                        <a href="#" class="filter-link">Hồ Chí Minh</a>
+                        <span class="filter-count">(1737)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Danh mục sản phẩm -->
+            <div class="filter-section">
+                <h3 class="filter-section-title">DANH MỤC SẢN PHẨM</h3>
+                <div class="filter-divider"></div>
+                <ul class="filter-list category-list">
+                    <li class="filter-item"><a href="#" class="filter-link">Bột Các Loại</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Cá Biển</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Chả Các Loại</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Đặc Sản Hà Giang</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Đặc Sản Tây Bắc</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Đặc Sản Vùng Miền</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Đồ Khô</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Đồ Ngâm Rượu</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Đồ Ướt</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Freeship</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Gạo</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Gia Công Nông Sản</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Gia Vị</a></li>
+                    <li class="filter-item"><a href="#" class="filter-link">Hải Sản Đông Lạnh</a></li>
+                </ul>
+            </div>
+
+            <!-- Lọc theo giá -->
+            <div class="filter-section">
+                <h3 class="filter-section-title">LỌC THEO GIÁ</h3>
+                <div class="filter-divider"></div>
+                <div class="price-filter">
+                    <input type="range" min="0" max="8010000" value="4005000" class="price-slider" id="priceRange">
+                    <div class="price-display">
+                        Giá: <span id="minPrice">0 ₫</span> — <span id="maxPrice">8.010.000 ₫</span>
+                    </div>
+                    <button class="filter-button">Lọc</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="products-main-content">
+            <h1 class="products-page-title">Products</h1>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="Rau Má Tươi">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Rau Má Tươi</h3>
+                        <p class="product-price">
+                            <span class="price-from">36.000 ₫</span> – 
+                            <span class="price-to">360.000 ₫</span>
+                        </p>
+                        <button class="add-to-cart-btn">Lựa chọn túy chọn</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="Khoai Lang">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Khoai Lang </h3>
+                        <p class="product-price">
+                            <span class="price-from">135.000 ₫</span> – 
+                            <span class="price-to">154.000 ₫</span>
+                        </p>
+                        <button class="add-to-cart-btn">Lựa chọn túy chọn</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="Bạc Hà Tươi">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bạc Hà Tươi</h3>
+                        <p class="product-price">
+                            <span class="price-from">10.000 ₫</span> – 
+                            <span class="price-to">93.500 ₫</span>
+                        </p>
+                        <button class="add-to-cart-btn">Lựa chọn túy chọn</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="Bạch Bộ Dũng Hà">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bạch Bộ Dũng Hà</h3>
+                        <p class="product-price">
+                            <span class="price-from">85.000 ₫</span> – 
+                            <span class="price-to">95.000 ₫</span>
+                        </p>
+                        <button class="add-to-cart-btn">Lựa chọn túy chọn</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="Bạch Chỉ">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bạch Chỉ</h3>
+                        <p class="product-price">
+                            <span class="price-single">150.000 ₫</span>
+                        </p>
+                        <button class="add-to-cart-btn">Lựa chọn túy chọn</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="Bạch Đồng Nữ Dũng Hà">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bạch Đồng Nữ Dũng Hà</h3>
+                        <p class="product-price">
+                            <span class="price-from">30.000 ₫</span> – 
+                            <span class="price-to">40.000 ₫</span>
+                        </p>
+                        <button class="add-to-cart-btn">Lựa chọn túy chọn</button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="Bạch Hoa Xà Dũng Hà">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bạch Hoa Xà Dũng Hà</h3>
+                        <p class="product-price">
+                            <span class="price-from">40.000 ₫</span> – 
+                            <span class="price-to">50.000 ₫</span>
+                        </p>
+                        <button class="add-to-cart-btn">Lựa chọn túy chọn</button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="Bạch Hợp Khô">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bạch Hợp Khô</h3>
+                        <p class="product-price">
+                            <span class="price-from">180.000 ₫</span> – 
+                            <span class="price-to">360.000 ₫</span>
+                        </p>
+                        <button class="add-to-cart-btn">Lựa chọn túy chọn</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <span class="page-dots">...</span>
+                <button class="page-btn">86</button>
+                <button class="page-btn">87</button>
+                <button class="page-btn">88</button>
+                <button class="page-btn next-btn">›</button>
+            </div>
+        </main>
+    </div>
+    <div id="main-footer"></div> 
+    
+</body>
+<script src="/js/SanPham.js"></script>
+<script src="/js/header-footer.js"></script>
+</html>
