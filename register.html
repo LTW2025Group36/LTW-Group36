@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="/css/forgot-password.css">
+    <title>Register</title>
+    <link rel ="stylesheet" href="/css/register.css">
     <link rel ="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -11,18 +11,31 @@
 <div id="main-header"></div>
 <div class="header-top">
     <div class="breadcrumb">
-        Trang chủ / Đăng nhập tài khoản
+        Trang chủ / Đăng ký tài khoản
     </div>
 </div>
 <main>
-    <div class="forgot-container">
-        <h1>ĐẶT LẠI MẬT KHẨU</h1>
-        <p>Chúng tôi sẽ gửi cho bạn một email để kích hoạt đặt lại mật khẩu.</p>
+    <div class="register-container">
+        <h1>THÔNG TIN CÁ NHÂN</h1>
+        <p>Bạn chưa có tài khoản ?
+            <a href="login.html">Đăng nhập tại đây.</a></p>
         <form action="">
+            <label>Họ <span>*</span></label>
+            <input type="text" placeholder="Họ" required>
+
+            <label>Tên <span>*</span></label>
+            <input type="text" placeholder="Tên" required>
+
+            <label>Số điện thoại <span>*</span></label>
+            <input type="text" placeholder="Số điện thoại" required>
+
             <label>Email <span>*</span></label>
             <input type="email" placeholder="Email" required>
-            <button class="submit">Lấy lại mật khẩu</button>
-            <a class="back" href="login.html">Quay lại</a>
+
+            <label>Mật khẩu <span>*</span></label>
+            <input type="password" placeholder="Mật khẩu" required>
+
+            <button type="submit" class="submit">Đăng ký</button>
         </form>
         <p class="hoac">Hoặc đăng nhập bằng</p>
         <div class="social-login">
@@ -32,7 +45,6 @@
     </div>
 </main>
 <div id="main-footer"></div>
-<script src="/js/forgot-password.js"></script>
 <script src="/js/header-footer.js"></script>
 </body>
 </html>
