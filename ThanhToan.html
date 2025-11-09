@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh Toán </title>
+
+  <link rel="stylesheet" href="/css/TT.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div id="main-header"></div>
+  <main class="container">
+    <header class="brand">
+      <img src="https://via.placeholder.com/90x50?text=LOGO" alt="Logo" />
+    </header>
+
+    <div class="checkout">
+      <!-- CỘT TRÁI: THÔNG TIN MUA HÀNG -->
+      <section class="checkout-info">
+        <div class="checkout-header">
+          <h1>Thông tin mua hàng</h1>
+          <a href="#" class="logout-link">Đăng xuất</a>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm" novalidate>
+          <div class="form-row">
+            <label for="addressBook">Sổ địa chỉ</label>
+            <select id="addressBook">
+              <option>Địa chỉ khác...</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="email@domain.com" required />
+          </div>
+
+          <div class="form-split">
+            <div class="form-row">
+              <label for="fullname">Họ và tên</label>
+              <input id="fullname" type="text" placeholder="Nguyễn Văn A" required />
+            </div>
+            <div class="form-row">
+              <label for="phone">Số điện thoại</label>
+              <input id="phone" type="tel" placeholder="09xx xxx xxx" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="street">Địa chỉ</label>
+            <input id="street" type="text" placeholder="Số nhà, tên đường..." required />
+          </div>
+
+          <div class="form-split">
+            <!-- TỈNH / THÀNH -->
+            <div class="form-row">
+              <label for="province">Tỉnh/Thành</label>
+              <input id="province" list="province-list" placeholder="VD: TP Hồ Chí Minh"
+                autocomplete="address-level1" />
+              <datalist id="province-list">
+                <option value="TP Hồ Chí Minh"></option>
+                <option value="Bình Dương"></option>
+              </datalist>
+            </div>
+
+            <!-- QUẬN / HUYỆN (gợi ý theo tỉnh, nhưng vẫn gõ được) -->
+            <div class="form-row">
+              <label for="district">Quận/Huyện</label>
+              <input id="district" list="district-list" placeholder="VD: Thành phố Thủ Đức"
+                autocomplete="address-level2" />
+              <datalist id="district-list">
+                <!-- render bằng JS theo tỉnh -->
+              </datalist>
+            </div>
+
+            <!-- PHƯỜNG / XÃ (gợi ý theo quận, vẫn gõ được) -->
+            <div class="form-row">
+              <label for="ward">Phường/Xã</label>
+              <input id="ward" list="ward-list" placeholder="VD: Linh Trung" autocomplete="address-level3" />
+              <datalist id="ward-list">
+                <!-- render bằng JS theo quận -->
+              </datalist>
+            </div>
+          </div>
+
+
+          <label class="checkbox">
+            <input type="checkbox" id="shipOther" />
+            Giao hàng đến địa chỉ khác
+          </label>
+
+          <div class="form-row">
+            <label for="note">Ghi chú (tuỳ chọn)</label>
+            <textarea id="note" rows="4" placeholder="Ví dụ: Giao giờ hành chính..."></textarea>
+          </div>
+
+          <div class="panel">
+            <h2>Vận chuyển</h2>
+            <p class="muted" id="shippingInfo">Vui lòng nhập thông tin giao hàng</p>
+          </div>
+
+          <div class="panel">
+            <h2>Thanh toán</h2>
+            <label class="radio">
+              <input type="radio" name="payment" value="COD" checked />
+              Thanh toán khi giao hàng (COD)
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <!-- CỘT PHẢI: ĐƠN HÀNG -->
+      <aside class="checkout-summary" aria-label="Tóm tắt đơn hàng">
+        <h2 class="sum-title">Đơn hàng (<span id="itemCount">0</span> sản phẩm)</h2>
+
+        <div id="orderItems" class="order-items"><!-- render bằng JS --></div>
+
+        <div class="discount">
+          <input id="coupon" type="text" placeholder="Nhập mã giảm giá" />
+          <button id="applyCoupon" type="button">Áp dụng</button>
+        </div>
+
+        <div class="totals">
+          <p>Tạm tính <span id="subtotalText">0đ</span></p>
+          <p>Phí vận chuyển <span id="shippingFeeText">-</span></p>
+          <p class="grand">Tổng cộng <strong id="grandTotalText">0đ</strong></p>
+        </div>
+
+        <div class="actions">
+          <a href="GioHang.html" class="back-link">← Quay về giỏ hàng</a>
+          <button id="placeOrder" class="submit-btn" type="button">ĐẶT HÀNG</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+
+
+  <div id="main-footer"></div>
+  <script src="/js/TT.js"></script>
+  <script src="/js/header-footer.js"></script>
+</body>
+
+</html>
