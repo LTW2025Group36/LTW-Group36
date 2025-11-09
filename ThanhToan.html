@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh Toán </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh Toán </title>
 
-    <link rel="stylesheet" href="/css/TT.css">
-    <link rel ="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <link rel="stylesheet" href="/css/TT.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-     <div id="main-header"></div> 
-     <main class="container">
+  <div id="main-header"></div>
+  <main class="container">
     <header class="brand">
       <img src="https://via.placeholder.com/90x50?text=LOGO" alt="Logo" />
     </header>
@@ -54,35 +55,37 @@
             <input id="street" type="text" placeholder="Số nhà, tên đường..." required />
           </div>
 
-         <div class="form-split">
-        <!-- TỈNH / THÀNH -->
-        <div class="form-row">
-            <label for="province">Tỉnh/Thành</label>
-            <input id="province" list="province-list" placeholder="VD: TP Hồ Chí Minh" autocomplete="address-level1" />
-            <datalist id="province-list">
-            <option value="TP Hồ Chí Minh"></option>
-            <option value="Bình Dương"></option>
-            </datalist>
-        </div>
+          <div class="form-split">
+            <!-- TỈNH / THÀNH -->
+            <div class="form-row">
+              <label for="province">Tỉnh/Thành</label>
+              <input id="province" list="province-list" placeholder="VD: TP Hồ Chí Minh"
+                autocomplete="address-level1" />
+              <datalist id="province-list">
+                <option value="TP Hồ Chí Minh"></option>
+                <option value="Bình Dương"></option>
+              </datalist>
+            </div>
 
-        <!-- QUẬN / HUYỆN (gợi ý theo tỉnh, nhưng vẫn gõ được) -->
-        <div class="form-row">
-            <label for="district">Quận/Huyện</label>
-            <input id="district" list="district-list" placeholder="VD: Thành phố Thủ Đức" autocomplete="address-level2" />
-            <datalist id="district-list">
-            <!-- render bằng JS theo tỉnh -->
-            </datalist>
-        </div>
+            <!-- QUẬN / HUYỆN (gợi ý theo tỉnh, nhưng vẫn gõ được) -->
+            <div class="form-row">
+              <label for="district">Quận/Huyện</label>
+              <input id="district" list="district-list" placeholder="VD: Thành phố Thủ Đức"
+                autocomplete="address-level2" />
+              <datalist id="district-list">
+                <!-- render bằng JS theo tỉnh -->
+              </datalist>
+            </div>
 
-        <!-- PHƯỜNG / XÃ (gợi ý theo quận, vẫn gõ được) -->
-        <div class="form-row">
-            <label for="ward">Phường/Xã</label>
-            <input id="ward" list="ward-list" placeholder="VD: Linh Trung" autocomplete="address-level3" />
-            <datalist id="ward-list">
-            <!-- render bằng JS theo quận -->
-            </datalist>
-        </div>
-        </div>
+            <!-- PHƯỜNG / XÃ (gợi ý theo quận, vẫn gõ được) -->
+            <div class="form-row">
+              <label for="ward">Phường/Xã</label>
+              <input id="ward" list="ward-list" placeholder="VD: Linh Trung" autocomplete="address-level3" />
+              <datalist id="ward-list">
+                <!-- render bằng JS theo quận -->
+              </datalist>
+            </div>
+          </div>
 
 
           <label class="checkbox">
@@ -137,9 +140,9 @@
 
 
 
-     <div id="main-footer"></div>
-    <script src="/js/TT.js"></script>
-    <script src="/js/header-footer.js"></script>
+  <div id="main-footer"></div>
+  <script src="/js/TT.js"></script>
+  <script src="/js/header-footer.js"></script>
 </body>
 
 </html>

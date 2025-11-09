@@ -11,14 +11,7 @@
   --ok:#065f46;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-  color:var(--fg);
-  background:var(--bg);
-  line-height:1.5;
-}
+
 
 .container{
   max-width:1100px;
@@ -76,8 +69,7 @@ input:focus, textarea:focus{
 }
 textarea{ min-height:160px; resize:vertical; }
 
-.actions{ margin-top:14px; }
-.btn{
+.btn-submit{
   display:inline-flex; align-items:center; justify-content:center;
   padding:12px 18px;
   font-weight:600;
@@ -88,8 +80,8 @@ textarea{ min-height:160px; resize:vertical; }
   cursor:pointer;
   transition:transform .04s ease, background .15s ease;
 }
-.btn:hover{ background:var(--green-600); }
-.btn:active{ transform:translateY(1px); }
+.btn-submit:hover{ background:var(--green-600); }
+.btn-submit:active{ transform:translateY(1px); }
 
 .help{ font-size:13px; color:var(--muted); margin-top:2px; }
 .err{ color:var(--error); font-size:13px; margin-top:6px; display:none; }
