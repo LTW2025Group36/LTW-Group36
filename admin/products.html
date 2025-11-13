@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Sản phẩm - Admin Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div id="admin-sidebar"></div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <div id="admin-header"></div>
+
+            <!-- Content -->
+            <div class="admin-content">
+                <div class="content-header">
+                    <div>
+                        <h1 class="content-title">Quản lý Sản phẩm</h1>
+                        <div class="content-breadcrumb">
+                            <a href="/admin/index.html"><i class="fas fa-home"></i> Dashboard</a>
+                            <span>/</span>
+                            <span>Sản phẩm</span>
+                        </div>
+                    </div>
+                    <div class="page-actions">
+                        <a href="/admin/product-add.html" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Thêm sản phẩm
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label>Danh mục</label>
+                        <select class="form-control">
+                            <option value="">Tất cả danh mục</option>
+                            <option>Rau lá</option>
+                            <option>Củ quả</option>
+                            <option>Trái cây</option>
+                            <option>Nấm - Măng</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Trạng thái</label>
+                        <select class="form-control">
+                            <option value="">Tất cả</option>
+                            <option>Còn hàng</option>
+                            <option>Hết hàng</option>
+                            <option>Ngừng kinh doanh</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Sắp xếp</label>
+                        <select class="form-control">
+                            <option>Mới nhất</option>
+                            <option>Tên A-Z</option>
+                            <option>Giá thấp - cao</option>
+                            <option>Giá cao - thấp</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group" style="display: flex; align-items: end;">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-filter"></i>
+                            Lọc
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Products Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Danh sách sản phẩm (342)</h3>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-sm btn-outline" onclick="exportTableToCSV('productsTable', 'san-pham.csv')">
+                                <i class="fas fa-download"></i>
+                                Xuất Excel
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-wrapper">
+                            <table class="admin-table" id="productsTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50px;">
+                                            <input type="checkbox">
+                                        </th>
+                                        <th>Sản phẩm</th>
+                                        <th>Danh mục</th>
+                                        <th>Giá</th>
+                                        <th>Tồn kho</th>
+                                        <th>Trạng thái</th>
+                                        <th style="width: 150px;">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="product-cell">
+                                                <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                <div>
+                                                    <div class="product-name">Bắp cải hữu cơ</div>
+                                                    <div class="product-sku">SKU: RAU-001</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Rau lá</td>
+                                        <td><strong>25.000đ</strong></td>
+                                        <td>234</td>
+                                        <td><span class="badge success">Còn hàng</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/product-edit.html?id=1" class="btn btn-sm btn-outline" title="Sửa">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-danger btn-delete" title="Xóa">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="product-cell">
+                                                <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                <div>
+                                                    <div class="product-name">Cà chua Đà Lạt</div>
+                                                    <div class="product-sku">SKU: RAU-002</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Củ quả</td>
+                                        <td><strong>30.000đ</strong></td>
+                                        <td>189</td>
+                                        <td><span class="badge success">Còn hàng</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/product-edit.html?id=2" class="btn btn-sm btn-outline">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-danger btn-delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="product-cell">
+                                                <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                <div>
+                                                    <div class="product-name">Dưa leo Baby</div>
+                                                    <div class="product-sku">SKU: RAU-003</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Củ quả</td>
+                                        <td><strong>22.000đ</strong></td>
+                                        <td>167</td>
+                                        <td><span class="badge success">Còn hàng</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/product-edit.html?id=3" class="btn btn-sm btn-outline">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-danger btn-delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="product-cell">
+                                                <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                <div>
+                                                    <div class="product-name">Cà rốt tươi</div>
+                                                    <div class="product-sku">SKU: RAU-004</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Củ quả</td>
+                                        <td><strong>28.000đ</strong></td>
+                                        <td>145</td>
+                                        <td><span class="badge success">Còn hàng</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/product-edit.html?id=4" class="btn btn-sm btn-outline">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-danger btn-delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="product-cell">
+                                                <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                <div>
+                                                    <div class="product-name">Rau muống non</div>
+                                                    <div class="product-sku">SKU: RAU-005</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Rau lá</td>
+                                        <td><strong>15.000đ</strong></td>
+                                        <td>8</td>
+                                        <td><span class="badge warning">Sắp hết</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/product-edit.html?id=5" class="btn btn-sm btn-outline">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-danger btn-delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="product-cell">
+                                                <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                <div>
+                                                    <div class="product-name">Bí đỏ hữu cơ</div>
+                                                    <div class="product-sku">SKU: RAU-006</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Củ quả</td>
+                                        <td><strong>20.000đ</strong></td>
+                                        <td>0</td>
+                                        <td><span class="badge danger">Hết hàng</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/product-edit.html?id=6" class="btn btn-sm btn-outline">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-danger btn-delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="product-cell">
+                                                <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                <div>
+                                                    <div class="product-name">Xà lách tươi</div>
+                                                    <div class="product-sku">SKU: RAU-007</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Rau lá</td>
+                                        <td><strong>25.000đ</strong></td>
+                                        <td>92</td>
+                                        <td><span class="badge success">Còn hàng</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/product-edit.html?id=7" class="btn btn-sm btn-outline">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-danger btn-delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>
+                                            <div class="product-cell">
+                                                <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                <div>
+                                                    <div class="product-name">Hành lá tươi</div>
+                                                    <div class="product-sku">SKU: RAU-008</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Rau thơm</td>
+                                        <td><strong>12.000đ</strong></td>
+                                        <td>156</td>
+                                        <td><span class="badge success">Còn hàng</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/product-edit.html?id=8" class="btn btn-sm btn-outline">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-danger btn-delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <a href="/admin/#" class="disabled"><i class="fas fa-chevron-left"></i></a>
+                            <span class="active">1</span>
+                            <a href="/admin/#">2</a>
+                            <a href="/admin/#">3</a>
+                            <a href="/admin/#">4</a>
+                            <span>...</span>
+                            <a href="/admin/#">43</a>
+                            <a href="/admin/#"><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/admin/js/sidebarHeader.js"></script>
+    <script src="/admin/js/admin.js"></script>
+</body>
+</html>

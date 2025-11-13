@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sản phẩm - Admin Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div id="admin-sidebar"></div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <div id="admin-header"></div>
+
+            <!-- Content -->
+            <div class="admin-content">
+                <div class="content-header">
+                    <div>
+                        <h1 class="content-title">Thêm Sản phẩm mới</h1>
+                        <div class="content-breadcrumb">
+                            <a href="/admin/index.html"><i class="fas fa-home"></i> Dashboard</a>
+                            <span>/</span>
+                            <a href="/admin/products.html">Sản phẩm</a>
+                            <span>/</span>
+                            <span>Thêm mới</span>
+                        </div>
+                    </div>
+                    <div class="page-actions">
+                        <a href="/admin/products.html" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i>
+                            Quay lại
+                        </a>
+                    </div>
+                </div>
+
+                <form class="admin-form" action="products.html" method="get" data-autosave="true">
+                    <!-- Thông tin cơ bản -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Thông tin cơ bản</h3>
+                        
+                        <div class="form-group">
+                            <label for="productName">Tên sản phẩm <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="productName" 
+                                name="productName" 
+                                class="form-control" 
+                                placeholder="VD: Bắp cải hữu cơ"
+                                required
+                            >
+                            <div class="form-error">Vui lòng nhập tên sản phẩm</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productSKU">Mã SKU</label>
+                            <input 
+                                type="text" 
+                                id="productSKU" 
+                                name="productSKU" 
+                                class="form-control" 
+                                placeholder="VD: RAU-001"
+                            >
+                            <div class="form-text">Để trống để tự động tạo</div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category">Danh mục <span class="required">*</span></label>
+                                <select id="category" name="category" class="form-control" required>
+                                    <option value="">-- Chọn danh mục --</option>
+                                    <option>Rau lá</option>
+                                    <option>Củ quả</option>
+                                    <option>Trái cây</option>
+                                    <option>Nấm - Măng</option>
+                                    <option>Rau thơm</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="brand">Thương hiệu</label>
+                                <input 
+                                    type="text" 
+                                    id="brand" 
+                                    name="brand" 
+                                    class="form-control" 
+                                    placeholder="VD: Farmily"
+                                    value="Farmily"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Mô tả ngắn</label>
+                            <textarea 
+                                id="description" 
+                                name="description" 
+                                class="form-control" 
+                                rows="3"
+                                placeholder="Mô tả ngắn gọn về sản phẩm..."
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="detailDescription">Mô tả chi tiết</label>
+                            <textarea 
+                                id="detailDescription" 
+                                name="detailDescription" 
+                                class="form-control" 
+                                rows="6"
+                                placeholder="Mô tả chi tiết về sản phẩm, nguồn gốc, công dụng..."
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Giá & Kho -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Giá & Kho hàng</h3>
+                        
+                        <div class="form-row-3">
+                            <div class="form-group">
+                                <label for="price">Giá bán (VNĐ) <span class="required">*</span></label>
+                                <input 
+                                    type="number" 
+                                    id="price" 
+                                    name="price" 
+                                    class="form-control" 
+                                    placeholder="25000"
+                                    min="0"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comparePrice">Giá gốc (VNĐ)</label>
+                                <input 
+                                    type="number" 
+                                    id="comparePrice" 
+                                    name="comparePrice" 
+                                    class="form-control" 
+                                    placeholder="30000"
+                                    min="0"
+                                >
+                                <div class="form-text">Để hiển thị giá khuyến mãi</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="stock">Số lượng tồn kho <span class="required">*</span></label>
+                                <input 
+                                    type="number" 
+                                    id="stock" 
+                                    name="stock" 
+                                    class="form-control" 
+                                    placeholder="100"
+                                    min="0"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="unit">Đơn vị tính</label>
+                                <select id="unit" name="unit" class="form-control">
+                                    <option>kg</option>
+                                    <option>gram</option>
+                                    <option>bó</option>
+                                    <option>trái</option>
+                                    <option>túi</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="weight">Khối lượng</label>
+                                <input 
+                                    type="text" 
+                                    id="weight" 
+                                    name="weight" 
+                                    class="form-control" 
+                                    placeholder="VD: 500g"
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hình ảnh -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Hình ảnh sản phẩm</h3>
+                        
+                        <div class="form-group">
+                            <label>Ảnh chính <span class="required">*</span></label>
+                            <div class="file-upload">
+                                <input type="file" id="mainImage" name="mainImage" accept="image/*" required>
+                                <label for="mainImage">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Kéo thả ảnh vào đây hoặc click để chọn</p>
+                                    <div class="file-types">JPG, PNG hoặc WEBP (Max 2MB)</div>
+                                </label>
+                            </div>
+                            <div class="image-preview"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ảnh phụ (Tối đa 4 ảnh)</label>
+                            <div class="file-upload">
+                                <input type="file" id="subImages" name="subImages" accept="image/*" multiple>
+                                <label for="subImages">
+                                    <i class="fas fa-images"></i>
+                                    <p>Chọn nhiều ảnh</p>
+                                    <div class="file-types">JPG, PNG hoặc WEBP (Max 2MB/ảnh)</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trạng thái -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Trạng thái & Tùy chọn</h3>
+                        
+                        <div class="form-group">
+                            <label>Trạng thái</label>
+                            <div style="display: flex; gap: 20px;">
+                                <div class="radio-wrapper">
+                                    <input type="radio" id="statusActive" name="status" value="active" checked>
+                                    <label for="statusActive">Còn hàng</label>
+                                </div>
+                                <div class="radio-wrapper">
+                                    <input type="radio" id="statusInactive" name="status" value="inactive">
+                                    <label for="statusInactive">Hết hàng</label>
+                                </div>
+                                <div class="radio-wrapper">
+                                    <input type="radio" id="statusDraft" name="status" value="draft">
+                                    <label for="statusDraft">Nháp</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="featured" name="featured">
+                                <label for="featured">Sản phẩm nổi bật</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="newArrival" name="newArrival">
+                                <label for="newArrival">Sản phẩm mới</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="onSale" name="onSale">
+                                <label for="onSale">Đang giảm giá</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div style="display: flex; gap: 10px; justify-content: flex-end; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                        <a href="/admin/products.html" class="btn btn-secondary">
+                            Hủy bỏ
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Lưu sản phẩm
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="/admin/js/sidebarHeader.js"></script>
+    <script src="/admin/js/admin.js"></script>
+    <script>
+        // Success message sau khi submit
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Đã thêm sản phẩm thành công!');
+            window.location.href = 'products.html';
+        });
+    </script>
+</body>
+</html>
