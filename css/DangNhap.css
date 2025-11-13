@@ -62,7 +62,6 @@ input + label {
 input {
     padding: 12px;
     font-size: 16px;
-    margin-top: 8px; /* Khoảng cách giữa label và input */
     border: 1px solid #ccc;
     border-radius: 6px;
     width: 100%;
