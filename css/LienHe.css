@@ -1,96 +1,71 @@
-:root{
-  --green:#2e7d32;
-  --green-600:#1b5e20;
-  --border:#9da7ba;
-  --fg:#111827;
-  --muted:#6b7280;
-  --bg:#ffffff;
-  --card:#efe9e9;
-  --focus:#2563eb;
-  --error:#b91c1c;
-  --ok:#065f46;
+.LienHe_container {
+
+  max-width: 1200px;    /* Giới hạn chiều rộng tối đa */
+    margin: 20px auto;   /* Căn giữa: trên-dưới 20px, trái-phải auto */
+    padding: 5 15px;     /* Padding trái-phải */
 }
-
-
-
-.container{
-  max-width:1100px;
-  margin-inline:auto;
-  padding:32px 20px;
-}
-
 .grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap:28px;
+  display: flex; /* Sử dụng Flexbox để tạo lưới */
+  gap: 20px; /* Khoảng cách giữa các item */
+  
 }
-@media (min-width: 960px){
-  .grid{ grid-template-columns: 420px 1fr; gap:40px; }
-}
-
-h2{ margin:0 0 18px; font-size:22px; }
 .card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:18px;
+  flex: 1; /* Mỗi card chiếm không gian đều nhau */
+  background-color: #d1d1d1;
+  border-radius: 5px; /* Bo góc cho card */
+  padding: 15px;
+  flex: 1;/* Mỗi card chiếm không gian đều nhau */
+   
+}
+@media (min-width: 768px) {
+  .grid {
+   display: grid;/* Chuyển sang Grid Layout */
+   grid-template-columns: 1fr 1.5fr;/* Hai cột với tỉ lệ 1:1.5 */
+  }
+  .card:first-child{
+    flex: none; /* Bỏ flex cho grid */
+  }
 }
 
-.dept{ margin-bottom:18px; }
-.dept h3{
-  margin:0 0 6px;
-  font-size:15px;
-  text-transform:uppercase;
+/* Phần CSS cho sidebar liên hệ */
+.form .row {
+  display: flex; /* Sử dụng Flexbox để tạo hàng */
+  gap: 15px;/* Khoảng cách giữa các phần tử trong hàng */
+  margin-bottom: 15px;/* Khoảng cách dưới mỗi hàng */
+} 
+.form .row >div{
+  flex: 1; /* Mỗi phần tử trong hàng chiếm không gian đều nhau */
 }
-.list{ margin:0; padding-left:18px; }
-.list li{ margin:6px 0; color:var(--fg); }
-.muted{ color:var(--muted); }
-a{ color:inherit; }
+label {
+    display: block;/* Hiển thị nhãn dưới dạng khối */
+    font-size: 13px;
+    margin-bottom: 5px;
+   }
+input, textarea {
+    width: 100%;/* Chiều rộng đầy đủ của phần tử cha => đảm bảo chăc chắn chỉ 1 hàng vi không còn chỗ trống có phần tử khác  */
+    padding: 8px;/* Padding cho input và textarea */
+    border: 1px solid #9da7ba;/* Viền xám nhạt */
+    border-radius: 5px;
+    font-size: 14px;
+    background: #fff;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+textarea { min-height: 120px; resize: vertical; }/* Chiều cao tối thiểu cho textarea và cho phép thay đổi kích thước theo chiều dọc */
 
-.form .row{ display:grid; gap:12px; grid-template-columns:1fr; }
-@media (min-width: 680px){
-  .form .row.two{ grid-template-columns:1fr 1fr; }
+/* Nút Gửi */ 
+.action {
+margin-top: 15px;/* Khoảng cách trên nút */
 }
+.btn-submit {
+    padding: 10px 15px;/* Padding trong nút */
+    font-weight: bold;/* Chữ in đậm */
+    border: none;/* Bỏ viền mặc định */
+    border-radius: 5px;/* Bo góc cho nút */
+    background: #2e7d32; /* Màu xanh lá */
+    color: #fff;
+    cursor: pointer;/* Con trỏ chuột khi hover */
+}
+/* Thông báo lỗi/thành công (để lại cho JS) */
+.err { color: red; font-size: 12px; margin-top: 3px; display: none; }
+.ok { background: lightgreen; color: green; border: 1px solid green; padding: 10px; border-radius: 5px; display: none; margin-bottom: 10px; }
 
-label{ display:block; font-size:14px; margin-bottom:6px; }
-input, textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  font-size:15px;
-  background:#fff;
-  outline:none;
-  transition:border .15s, box-shadow .15s;
-}
-input:focus, textarea:focus{
-  border-color:var(--focus);
-  box-shadow:0 0 0 3px rgba(37,99,235,.15);
-}
-textarea{ min-height:160px; resize:vertical; }
-
-.btn-submit{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:12px 18px;
-  font-weight:600;
-  border:0;
-  border-radius:12px;
-  background:var(--green);
-  color:#fff;
-  cursor:pointer;
-  transition:transform .04s ease, background .15s ease;
-}
-.btn-submit:hover{ background:var(--green-600); }
-.btn-submit:active{ transform:translateY(1px); }
-
-.help{ font-size:13px; color:var(--muted); margin-top:2px; }
-.err{ color:var(--error); font-size:13px; margin-top:6px; display:none; }
-.ok{
-  background:#ecfdf5;
-  color:var(--ok);
-  border:1px solid #a7f3d0;
-  padding:10px 12px;
-  border-radius:10px;
-  display:none;
-  margin-bottom:12px;
-}

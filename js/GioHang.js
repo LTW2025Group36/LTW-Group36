@@ -29,7 +29,7 @@
     item.querySelector('.item-subtotal').textContent = formatVND(subtotal);
     return subtotal;
   }
-
+  //---- Tính tổng giỏ hàng ----
   function calcCartTotal() {
     const sum = items().reduce((acc, it) => acc + calcItemSubtotal(it), 0);
     if (totalEl) totalEl.textContent = formatVND(sum);
@@ -90,19 +90,8 @@
     });
   }
 
-  document.querySelector('.checkout-btn')?.addEventListener('click', () => {
-    const list = getCartItemsData();
-    if (!list.length) {
-      alert('Giỏ hàng đang trống. Vui lòng thêm sản phẩm.');
-      return;
-    }
-    const total = list.reduce((s, i) => s + i.subtotal, 0);
-    const qtyTotal = list.reduce((s, i) => s + i.qty, 0);
-
-    localStorage.setItem('cartItems', JSON.stringify(list));
-    localStorage.setItem('cartTotal', String(total));
-    localStorage.setItem('cartQtyTotal', String(qtyTotal));
-
-    window.location.href =  'ThanhToan.html'; 
-  });
+  //--- chuyen den trang thanh toan
 })();
+document.querySelector('.checkout-btn')?.addEventListener('click', () => {
+  window.location.href = '/ThanhToan.html';
+});

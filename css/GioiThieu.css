@@ -1,43 +1,22 @@
-/* ====== TOC box ====== */
-.toc{
-  margin:16px auto;
-  border:1px solid #e5e7eb;
-  border-radius:8px;
-  background:#f9fafb;
-}
-.toc_title{
-  margin:0;
-  padding:10px 12px;
-  font-weight:700;
-  border-bottom:1px solid #e5e7eb;
-}
-#toc_content{
-  padding:10px 12px;
+
+/* Ảnh hero */
+.post-hero {
+    margin: 2rem 0;
+    text-align: center;
 }
 
-/* danh sách trong TOC */
-#toc_content ul{
-  list-style:none; /*bỏ dấu chấm mặc định*/
-  margin:0;
-  padding-left:0;
-}
-#toc_content li{ margin:6px 0; }
-
-/* link trong TOC */
-#toc_content a{
-  color:#16a34a;
-  text-decoration:none;
-}
-#toc_content a:hover{ text-decoration:underline; }/* khi di chuột qua link gạch chân để biết */
-
-/* mục đang xem */
-#toc_content li.active > a{
-  font-weight:700;
-  text-decoration:underline;
+.post-hero img {
+    width: 100%;
+    max-width: 1020px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* thụt lề mục con (h3) */
-#toc_content ul ul{ margin-left:16px; }
+.post-hero figcaption {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #666;
+    font-size: 25px;
+}
 
-/* cuộn mượt toàn trang */
-html{ scroll-behavior:smooth; }
