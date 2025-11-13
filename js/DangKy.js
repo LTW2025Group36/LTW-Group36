@@ -30,5 +30,5 @@ document.querySelector("form").addEventListener("submit", function(e) {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.");
-    window.location.href = "login.html";
+    window.location.href = "DangNhap.html";
 });
