@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo - Admin Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .notifications-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .notification-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .notification-tab {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--gray-600);
+            transition: all 0.2s;
+        }
+
+        .notification-tab:hover {
+            color: var(--primary);
+        }
+
+        .notification-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .notification-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .notification-full-item {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-100);
+            transition: background 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .notification-full-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-full-item:hover {
+            background: var(--gray-50);
+        }
+
+        .notification-full-item.unread {
+            background: rgba(22, 163, 74, 0.02);
+            border-left: 3px solid var(--primary);
+        }
+
+        .notification-full-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .notification-full-icon.order {
+            background: rgba(22, 163, 74, 0.1);
+            color: var(--primary);
+        }
+
+        .notification-full-icon.warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .notification-full-icon.info {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--info);
+        }
+
+        .notification-full-icon.danger {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--danger);
+        }
+
+        .notification-full-icon i {
+            font-size: 22px;
+        }
+
+        .notification-full-content {
+            flex: 1;
+        }
+
+        .notification-full-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+
+        .notification-full-text {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .notification-full-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .notification-full-time {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .notification-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mark-read-btn {
+            padding: 6px 12px;
+            background: var(--gray-100);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            color: var(--gray-700);
+            transition: all 0.2s;
+        }
+
+        .mark-read-btn:hover {
+            background: var(--gray-200);
+        }
+
+        .empty-notifications {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-notifications i {
+            font-size: 64px;
+            color: var(--gray-300);
+            margin-bottom: 20px;
+        }
+
+        .empty-notifications h3 {
+            font-size: 18px;
+            color: var(--gray-700);
+            margin-bottom: 10px;
+        }
+
+        .empty-notifications p {
+            color: var(--gray-500);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div id="admin-sidebar"></div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <div id="admin-header"></div>
+
+            <!-- Content -->
+            <div class="admin-content">
+                <div class="notifications-container">
+                    <div class="content-header">
+                        <div>
+                            <h1 class="content-title">Thông báo</h1>
+                            <div class="content-breadcrumb">
+                                <a href="/admin/index.html"><i class="fas fa-home"></i> Dashboard</a>
+                                <span>/</span>
+                                <span>Thông báo</span>
+                            </div>
+                        </div>
+                        <div class="page-actions">
+                            <button class="btn btn-outline" onclick="markAllAsRead()">
+                                <i class="fas fa-check-double"></i>
+                                Đánh dấu tất cả đã đọc
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="notification-tabs">
+                        <button class="notification-tab active" data-tab="all">
+                            Tất cả <span class="badge secondary" style="margin-left: 5px;">15</span>
+                        </button>
+                        <button class="notification-tab" data-tab="unread">
+                            Chưa đọc <span class="badge danger" style="margin-left: 5px;">5</span>
+                        </button>
+                        <button class="notification-tab" data-tab="orders">
+                            Đơn hàng <span class="badge info" style="margin-left: 5px;">8</span>
+                        </button>
+                        <button class="notification-tab" data-tab="products">
+                            Sản phẩm <span class="badge warning" style="margin-left: 5px;">3</span>
+                        </button>
+                    </div>
+
+                    <!-- Notifications List -->
+                    <div class="notification-card">
+                        <!-- Đơn hàng mới #12345 -->
+                        <a href="/admin/orders.html" class="notification-full-item unread">
+                            <div class="notification-full-icon order">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Đơn hàng mới #12345</div>
+                                <div class="notification-full-text">
+                                    Khách hàng <strong>Nguyễn Văn A</strong> đã đặt hàng với tổng giá trị <strong>156.000đ</strong>. 
+                                    Đơn hàng bao gồm 3 sản phẩm: Cà chua sạch, Rau muống, Dưa leo.
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>5 phút trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Đơn hàng</span>
+                                </div>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="mark-read-btn" onclick="markAsRead(event)">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </a>
+
+                        <!-- Đơn hàng mới #12344 -->
+                        <a href="/admin/orders.html" class="notification-full-item unread">
+                            <div class="notification-full-icon order">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Đơn hàng mới #12344</div>
+                                <div class="notification-full-text">
+                                    Khách hàng <strong>Trần Thị B</strong> đã đặt hàng với tổng giá trị <strong>289.000đ</strong>. 
+                                    Vui lòng kiểm tra và xác nhận đơn hàng.
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>15 phút trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Đơn hàng</span>
+                                </div>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="mark-read-btn" onclick="markAsRead(event)">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </a>
+
+                        <!-- Sản phẩm sắp hết hàng -->
+                        <a href="/admin/products.html" class="notification-full-item unread">
+                            <div class="notification-full-icon warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Sản phẩm sắp hết hàng</div>
+                                <div class="notification-full-text">
+                                    <strong>Cà chua sạch</strong> chỉ còn <strong>5 kg</strong> trong kho. 
+                                    Vui lòng nhập thêm hàng để đáp ứng nhu cầu khách hàng.
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>1 giờ trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Tồn kho</span>
+                                </div>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="mark-read-btn" onclick="markAsRead(event)">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </a>
+
+                        <!-- Đơn hàng đã giao -->
+                        <a href="/admin/orders.html" class="notification-full-item">
+                            <div class="notification-full-icon info">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Đơn hàng #12340 đã giao thành công</div>
+                                <div class="notification-full-text">
+                                    Đơn hàng của khách hàng <strong>Lê Văn C</strong> đã được giao thành công. 
+                                    Khách hàng đã xác nhận và thanh toán đầy đủ.
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>2 giờ trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Giao hàng</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Sản phẩm hết hàng -->
+                        <a href="/admin/products.html" class="notification-full-item unread">
+                            <div class="notification-full-icon danger">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Sản phẩm đã hết hàng</div>
+                                <div class="notification-full-text">
+                                    <strong>Rau muống hữu cơ</strong> đã hết hàng trong kho. 
+                                    Sản phẩm đang tạm ngưng bán cho đến khi có hàng mới.
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>3 giờ trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Tồn kho</span>
+                                </div>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="mark-read-btn" onclick="markAsRead(event)">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </a>
+
+                        <!-- Đơn hàng mới #12338 -->
+                        <a href="/admin/orders.html" class="notification-full-item">
+                            <div class="notification-full-icon order">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Đơn hàng mới #12338</div>
+                                <div class="notification-full-text">
+                                    Khách hàng <strong>Phạm Thị D</strong> đã đặt hàng với tổng giá trị <strong>425.000đ</strong>.
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>5 giờ trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Đơn hàng</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Đánh giá mới -->
+                        <a href="/admin/reviews.html" class="notification-full-item">
+                            <div class="notification-full-icon info">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Đánh giá mới cho sản phẩm</div>
+                                <div class="notification-full-text">
+                                    Khách hàng <strong>Hoàng Văn E</strong> đã đánh giá <strong>5 sao</strong> cho sản phẩm 
+                                    <strong>Cà chua sạch</strong>: "Sản phẩm rất tươi ngon, giao hàng nhanh!"
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>1 ngày trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Đánh giá</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Sản phẩm sắp hết hạn -->
+                        <a href="/admin/products.html" class="notification-full-item">
+                            <div class="notification-full-icon warning">
+                                <i class="fas fa-calendar-times"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Sản phẩm sắp hết hạn sử dụng</div>
+                                <div class="notification-full-text">
+                                    Lô hàng <strong>Dưa leo</strong> (10kg) sẽ hết hạn vào <strong>18/01/2025</strong>. 
+                                    Khuyến nghị giảm giá để bán nhanh.
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>1 ngày trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Tồn kho</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Đơn hàng bị hủy -->
+                        <a href="/admin/orders.html" class="notification-full-item">
+                            <div class="notification-full-icon danger">
+                                <i class="fas fa-ban"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Đơn hàng #12335 đã bị hủy</div>
+                                <div class="notification-full-text">
+                                    Khách hàng <strong>Vũ Thị F</strong> đã hủy đơn hàng. 
+                                    Lý do: "Đặt nhầm sản phẩm, muốn đổi sang loại khác."
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>2 ngày trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Đơn hàng</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Doanh thu tăng -->
+                        <a href="/admin/index.html" class="notification-full-item">
+                            <div class="notification-full-icon order">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="notification-full-content">
+                                <div class="notification-full-title">Doanh thu tháng này tăng 25%</div>
+                                <div class="notification-full-text">
+                                    Chúc mừng! Doanh thu trong tháng 1/2025 đã đạt <strong>15.8 triệu đồng</strong>, 
+                                    tăng 25% so với tháng trước.
+                                </div>
+                                <div class="notification-full-meta">
+                                    <div class="notification-full-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>3 ngày trước</span>
+                                    </div>
+                                    <span>•</span>
+                                    <span><i class="fas fa-tag"></i> Thống kê</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="mt-3" style="display: flex; justify-content: center;">
+                        <div class="pagination">
+                            <a href="#" class="disabled"><i class="fas fa-chevron-left"></i></a>
+                            <span class="active">1</span>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#"><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/sidebarHeader.js"></script>
+    <script src="/admin/js/admin.js"></script>
+    <script>
+        // Tab switching
+        const tabs = document.querySelectorAll('.notification-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter notifications based on tab
+                const tabType = this.dataset.tab;
+                // Add filter logic here if needed
+                console.log('Switched to tab:', tabType);
+            });
+        });
+
+        // Mark as read
+        function markAsRead(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const item = event.target.closest('.notification-full-item');
+            if (item) {
+                item.classList.remove('unread');
+                showNotification('Đã đánh dấu là đã đọc', 'success');
+            }
+        }
+
+        // Mark all as read
+        function markAllAsRead() {
+            const unreadItems = document.querySelectorAll('.notification-full-item.unread');
+            unreadItems.forEach(item => {
+                item.classList.remove('unread');
+            });
+            showNotification('Đã đánh dấu tất cả là đã đọc', 'success');
+        }
+    </script>
+</body>
+</html>
