@@ -21,8 +21,11 @@ thumbs.forEach(btn => {
   btn.addEventListener('click', () => {
     thumbs.forEach(b => b.classList.remove('is-active'));
     btn.classList.add('is-active');
-    const src = btn.getAttribute('data-src');
-    mainImg.src = src;
+    // LẤY SRC TỪ THẺ IMG BÊN TRONG BUTTON
+    const imgTag = btn.querySelector('img');
+    if (imgTag) {
+      mainImg.src = imgTag.src;
+    }
   });
 });
 
@@ -59,16 +62,14 @@ qtyInput.addEventListener('input', () => {
 });
 
 // ---- Submit: Thêm vào giỏ (demo) ----
-// Ở đây mình chỉ log ra console + hiển thị thông điệp.
-// Sau này bạn nối vào localStorage hoặc API tuỳ ý.
 purchaseForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const variant = weightSelect.value;          // ví dụ: 0.175, 0.5, 1
+  const variant = weightSelect.value;
   const price = Number(weightSelect.selectedOptions[0].dataset.price);
   const qty = clampQty(qtyInput.value);
 
   const cartItem = {
-    id: 'SP-DEMO-001-' + variant, // ví dụ mã sản phẩm + variant
+    id: 'SP-DEMO-001-' + variant,
     name: 'Tên Sản Phẩm DEMO',
     variantKg: Number(variant),
     unitPrice: price,
@@ -78,15 +79,12 @@ purchaseForm.addEventListener('submit', (e) => {
 
   console.log('Add to cart:', cartItem);
 
-  // Thông điệp UI
   msgEl.textContent = `Đã thêm ${qty} × ${cartItem.name} (${weightSelect.selectedOptions[0].text}) vào giỏ!`;
 
-  // Ví dụ lưu tạm vào localStorage (để bạn tái dùng cho trang giỏ hàng)
   const items = JSON.parse(localStorage.getItem('cartItems') || '[]');
   items.push(cartItem);
   localStorage.setItem('cartItems', JSON.stringify(items));
 
-  // Lưu tổng đơn (đơn giản): unitPrice * qty cộng dồn
   const oldTotal = Number(localStorage.getItem('cartTotal') || '0');
   localStorage.setItem('cartTotal', String(oldTotal + price * qty));
 });

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Bài viết - Admin Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div id="admin-sidebar"></div>
+
+        <main class="admin-main">
+            <!-- Header -->
+            <div id="admin-header"></div>
+
+            <div class="admin-content">
+                <div class="content-header">
+                    <div>
+                        <h1 class="content-title">Quản lý Bài viết</h1>
+                        <div class="content-breadcrumb">
+                            <a href="/admin/index.html"><i class="fas fa-home"></i> Dashboard</a>
+                            <span>/</span>
+                            <span>Bài viết</span>
+                        </div>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Thêm bài viết
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Danh sách bài viết (45)</h3>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Tiêu đề</th>
+                                    <th>Danh mục</th>
+                                    <th>Tác giả</th>
+                                    <th>Lượt xem</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày đăng</th>
+                                    <th style="width: 150px;">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; gap: 12px; align-items: center;">
+                                            <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" style="width: 60px; height: 40px; object-fit: cover; border-radius: 4px;">
+                                            <div>
+                                                <div style="font-weight: 600; margin-bottom: 3px;">Lợi ích của rau hữu cơ đối với sức khỏe</div>
+                                                <div style="font-size: 12px; color: #64748b;">loi-ich-cua-rau-huu-co</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Tin Hot</td>
+                                    <td>Admin User</td>
+                                    <td>1.234</td>
+                                    <td><span class="badge success">Đã đăng</span></td>
+                                    <td>15/01/2025</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline" title="Sửa"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-danger btn-delete" title="Xóa"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; gap: 12px; align-items: center;">
+                                            <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" style="width: 60px; height: 40px; object-fit: cover; border-radius: 4px;">
+                                            <div>
+                                                <div style="font-weight: 600; margin-bottom: 3px;">Cách bảo quản rau củ quả tươi lâu</div>
+                                                <div style="font-size: 12px; color: #64748b;">cach-bao-quan-rau-cu-qua</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Mẹo vặt</td>
+                                    <td>Admin User</td>
+                                    <td>896</td>
+                                    <td><span class="badge success">Đã đăng</span></td>
+                                    <td>14/01/2025</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-danger btn-delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; gap: 12px; align-items: center;">
+                                            <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" style="width: 60px; height: 40px; object-fit: cover; border-radius: 4px;">
+                                            <div>
+                                                <div style="font-weight: 600; margin-bottom: 3px;">Top 10 loại rau tốt cho người bệnh tiểu đường</div>
+                                                <div style="font-size: 12px; color: #64748b;">top-10-rau-cho-nguoi-tieu-duong</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Sức khỏe</td>
+                                    <td>Admin User</td>
+                                    <td>567</td>
+                                    <td><span class="badge warning">Nháp</span></td>
+                                    <td>13/01/2025</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-danger btn-delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <a href="/admin/#" class="disabled"><i class="fas fa-chevron-left"></i></a>
+                            <span class="active">1</span>
+                            <a href="/admin/#">2</a>
+                            <a href="/admin/#">3</a>
+                            <span>...</span>
+                            <a href="/admin/#">5</a>
+                            <a href="/admin/#"><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/admin/js/sidebarHeader.js"></script>
+    <script src="/admin/js/admin.js"></script>
+</body>
+</html>
