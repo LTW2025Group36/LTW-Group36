@@ -12,22 +12,6 @@ document.querySelector("form").addEventListener("submit", function(e) {
         return;
     }
 
-    // Lấy danh sách người dùng đã đăng ký (nếu có)
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Kiểm tra trùng email
-    const existed = users.some(u => u.email === email);
-    if (existed) {
-        alert("Email này đã được đăng ký!");
-        return;
-    }
-
-    // Tạo user mới
-    const newUser = { ho, ten, sdt, email, password };
-    users.push(newUser);
-
-    // Lưu lại
-    localStorage.setItem("users", JSON.stringify(users));
 
     alert("Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.");
     window.location.href = "DangNhap.html";

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Khách hàng - Admin Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="admin-layout">
+    <!-- Sidebar -->
+    <div id="admin-sidebar"></div>
+
+    <main class="admin-main">
+        <div id="admin-header"></div>
+
+        <div class="admin-content">
+            <div class="content-header">
+                <div>
+                    <h1 class="content-title">Quản lý Khách hàng</h1>
+                    <div class="content-breadcrumb">
+                        <a href="/admin/index.html"><i class="fas fa-home"></i> Dashboard</a>
+                        <span>/</span>
+                        <span>Khách hàng</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Danh sách khách hàng (1.234)</h3>
+                    <button class="btn btn-sm btn-outline" onclick="exportTableToCSV('customersTable', 'khach-hang.csv')">
+                        <i class="fas fa-download"></i> Xuất Excel
+                    </button>
+                </div>
+                <div class="card-body" style="padding: 0;">
+                    <table class="admin-table" id="customersTable">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Đơn hàng</th>
+                            <th>Tổng chi tiêu</th>
+                            <th>Ngày đăng ký</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><strong>#001</strong></td>
+                            <td><div style="font-weight: 600;">Nguyễn Văn A</div></td>
+                            <td>nguyenvana@email.com</td>
+                            <td>0912345678</td>
+                            <td>12</td>
+                            <td><strong style="color: #16a34a;">2.340.000đ</strong></td>
+                            <td>10/01/2025</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-outline" title="Xem"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline" title="Sửa"><i class="fas fa-edit"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#002</strong></td>
+                            <td><div style="font-weight: 600;">Trần Thị B</div></td>
+                            <td>tranthib@email.com</td>
+                            <td>0923456789</td>
+                            <td>8</td>
+                            <td><strong style="color: #16a34a;">1.780.000đ</strong></td>
+                            <td>11/01/2025</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#003</strong></td>
+                            <td><div style="font-weight: 600;">Lê Văn C</div></td>
+                            <td>levanc@email.com</td>
+                            <td>0934567890</td>
+                            <td>15</td>
+                            <td><strong style="color: #16a34a;">3.120.000đ</strong></td>
+                            <td>09/01/2025</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div class="pagination">
+                        <a href="/admin/#" class="disabled"><i class="fas fa-chevron-left"></i></a>
+                        <span class="active">1</span>
+                        <a href="/admin/#">2</a>
+                        <a href="/admin/#">3</a>
+                        <span>...</span>
+                        <a href="/admin/#">124</a>
+                        <a href="/admin/#"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="/admin/js/sidebarHeader.js"></script>
+<script src="/admin/js/admin.js"></script>
+</body>
+</html>

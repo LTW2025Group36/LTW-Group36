@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Đơn hàng - Admin Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div id="admin-sidebar"></div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <div id="admin-header"></div>
+
+            <!-- Content -->
+            <div class="admin-content">
+                <div class="content-header">
+                    <div>
+                        <h1 class="content-title">Quản lý Đơn hàng</h1>
+                        <div class="content-breadcrumb">
+                            <a href="/admin/index.html"><i class="fas fa-home"></i> Dashboard</a>
+                            <span>/</span>
+                            <span>Đơn hàng</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid" style="grid-template-columns: repeat(5, 1fr); margin-bottom: 20px;">
+                    <div class="stat-card" style="padding: 20px;">
+                        <div style="text-align: center;">
+                            <div style="color: #64748b; font-size: 13px; margin-bottom: 8px;">Tất cả</div>
+                            <div style="font-size: 24px; font-weight: 700;">127</div>
+                        </div>
+                    </div>
+                    <div class="stat-card warning" style="padding: 20px;">
+                        <div style="text-align: center;">
+                            <div style="color: #92400e; font-size: 13px; margin-bottom: 8px;">Chờ xác nhận</div>
+                            <div style="font-size: 24px; font-weight: 700;">5</div>
+                        </div>
+                    </div>
+                    <div class="stat-card info" style="padding: 20px;">
+                        <div style="text-align: center;">
+                            <div style="color: #1e40af; font-size: 13px; margin-bottom: 8px;">Đang giao</div>
+                            <div style="font-size: 24px; font-weight: 700;">12</div>
+                        </div>
+                    </div>
+                    <div class="stat-card primary" style="padding: 20px;">
+                        <div style="text-align: center;">
+                            <div style="color: #166534; font-size: 13px; margin-bottom: 8px;">Hoàn thành</div>
+                            <div style="font-size: 24px; font-weight: 700;">98</div>
+                        </div>
+                    </div>
+                    <div class="stat-card danger" style="padding: 20px;">
+                        <div style="text-align: center;">
+                            <div style="color: #991b1b; font-size: 13px; margin-bottom: 8px;">Hủy</div>
+                            <div style="font-size: 24px; font-weight: 700;">12</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label>Trạng thái</label>
+                        <select class="form-control">
+                            <option value="">Tất cả</option>
+                            <option>Chờ xác nhận</option>
+                            <option>Đang giao</option>
+                            <option>Hoàn thành</option>
+                            <option>Hủy</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Từ ngày</label>
+                        <input type="date" class="form-control">
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Đến ngày</label>
+                        <input type="date" class="form-control">
+                    </div>
+
+                    <div class="filter-group" style="display: flex; align-items: end;">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-filter"></i>
+                            Lọc
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Danh sách đơn hàng (127)</h3>
+                        <button class="btn btn-sm btn-outline" onclick="exportTableToCSV('ordersTable', 'don-hang.csv')">
+                            <i class="fas fa-download"></i>
+                            Xuất Excel
+                        </button>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-wrapper">
+                            <table class="admin-table" id="ordersTable">
+                                <thead>
+                                    <tr>
+                                        <th>Mã đơn</th>
+                                        <th>Khách hàng</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Trạng thái</th>
+                                        <th>Ngày đặt</th>
+                                        <th style="width: 150px;">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>#ORD001</strong></td>
+                                        <td>
+                                            <div style="font-weight: 500;">Nguyễn Văn A</div>
+                                            <div style="font-size: 12px; color: #64748b;">0912345678</div>
+                                        </td>
+                                        <td>3 sản phẩm</td>
+                                        <td><strong style="color: #16a34a;">156.000đ</strong></td>
+                                        <td>
+                                            <select class="status-select" style="padding: 4px 8px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 13px;">
+                                                <option selected>Chờ xác nhận</option>
+                                                <option>Đang giao</option>
+                                                <option>Hoàn thành</option>
+                                                <option>Hủy</option>
+                                            </select>
+                                        </td>
+                                        <td>15/01/2025 14:30</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/order-detail.html?id=ORD001" class="btn btn-sm btn-primary" title="Xem chi tiết">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline" title="In đơn" onclick="window.print()">
+                                                    <i class="fas fa-print"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>#ORD002</strong></td>
+                                        <td>
+                                            <div style="font-weight: 500;">Trần Thị B</div>
+                                            <div style="font-size: 12px; color: #64748b;">0923456789</div>
+                                        </td>
+                                        <td>5 sản phẩm</td>
+                                        <td><strong style="color: #16a34a;">289.000đ</strong></td>
+                                        <td>
+                                            <select class="status-select" style="padding: 4px 8px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 13px;">
+                                                <option>Chờ xác nhận</option>
+                                                <option selected>Đang giao</option>
+                                                <option>Hoàn thành</option>
+                                                <option>Hủy</option>
+                                            </select>
+                                        </td>
+                                        <td>15/01/2025 10:15</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/order-detail.html?id=ORD002" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline" onclick="window.print()">
+                                                    <i class="fas fa-print"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>#ORD003</strong></td>
+                                        <td>
+                                            <div style="font-weight: 500;">Lê Văn C</div>
+                                            <div style="font-size: 12px; color: #64748b;">0934567890</div>
+                                        </td>
+                                        <td>2 sản phẩm</td>
+                                        <td><strong style="color: #16a34a;">425.000đ</strong></td>
+                                        <td>
+                                            <span class="badge success">Hoàn thành</span>
+                                        </td>
+                                        <td>14/01/2025 16:45</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/order-detail.html?id=ORD003" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline" onclick="window.print()">
+                                                    <i class="fas fa-print"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>#ORD004</strong></td>
+                                        <td>
+                                            <div style="font-weight: 500;">Phạm Thị D</div>
+                                            <div style="font-size: 12px; color: #64748b;">0945678901</div>
+                                        </td>
+                                        <td>4 sản phẩm</td>
+                                        <td><strong style="color: #16a34a;">198.000đ</strong></td>
+                                        <td>
+                                            <select class="status-select" style="padding: 4px 8px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 13px;">
+                                                <option selected>Chờ xác nhận</option>
+                                                <option>Đang giao</option>
+                                                <option>Hoàn thành</option>
+                                                <option>Hủy</option>
+                                            </select>
+                                        </td>
+                                        <td>14/01/2025 09:20</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/order-detail.html?id=ORD004" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline" onclick="window.print()">
+                                                    <i class="fas fa-print"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>#ORD005</strong></td>
+                                        <td>
+                                            <div style="font-weight: 500;">Hoàng Văn E</div>
+                                            <div style="font-size: 12px; color: #64748b;">0956789012</div>
+                                        </td>
+                                        <td>6 sản phẩm</td>
+                                        <td><strong style="color: #16a34a;">356.000đ</strong></td>
+                                        <td>
+                                            <span class="badge success">Hoàn thành</span>
+                                        </td>
+                                        <td>13/01/2025 15:00</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/order-detail.html?id=ORD005" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline" onclick="window.print()">
+                                                    <i class="fas fa-print"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>#ORD006</strong></td>
+                                        <td>
+                                            <div style="font-weight: 500;">Vũ Thị F</div>
+                                            <div style="font-size: 12px; color: #64748b;">0967890123</div>
+                                        </td>
+                                        <td>1 sản phẩm</td>
+                                        <td><strong style="color: #16a34a;">89.000đ</strong></td>
+                                        <td>
+                                            <span class="badge danger">Hủy</span>
+                                        </td>
+                                        <td>13/01/2025 11:30</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="/admin/order-detail.html?id=ORD006" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="btn btn-sm btn-outline" onclick="window.print()">
+                                                    <i class="fas fa-print"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="card-footer">
+                        <div class="pagination">
+                            <a href="/admin/#" class="disabled"><i class="fas fa-chevron-left"></i></a>
+                            <span class="active">1</span>
+                            <a href="/admin/#">2</a>
+                            <a href="/admin/#">3</a>
+                            <span>...</span>
+                            <a href="/admin/#">13</a>
+                            <a href="/admin/#"><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/admin/js/sidebarHeader.js"></script>
+    <script src="/admin/js/admin.js"></script>
+</body>
+</html>
