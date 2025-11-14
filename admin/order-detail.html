@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Đơn hàng #ORD001 - Admin Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div id="admin-sidebar"></div>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div id="admin-header"></div>
+
+            <div class="admin-content">
+                <div class="content-header">
+                    <div>
+                        <h1 class="content-title">Chi tiết Đơn hàng #ORD001</h1>
+                        <div class="content-breadcrumb">
+                            <a href="/admin/index.html"><i class="fas fa-home"></i> Dashboard</a>
+                            <span>/</span>
+                            <a href="/admin/orders.html">Đơn hàng</a>
+                            <span>/</span>
+                            <span>#ORD001</span>
+                        </div>
+                    </div>
+                    <div class="page-actions">
+                        <a href="/admin/orders.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Quay lại</a>
+                        <button class="btn btn-secondary" onclick="window.print()"><i class="fas fa-print"></i> In đơn</button>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+                    <!-- Left Column -->
+                    <div>
+                        <!-- Order Info -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Thông tin đơn hàng</h3>
+                                <span class="badge warning">Chờ xác nhận</span>
+                            </div>
+                            <div class="card-body">
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px;">
+                                    <div>
+                                        <div style="color: #64748b; font-size: 13px; margin-bottom: 5px;">Ngày đặt:</div>
+                                        <div style="font-weight: 600;">15/01/2025 14:30</div>
+                                    </div>
+                                    <div>
+                                        <div style="color: #64748b; font-size: 13px; margin-bottom: 5px;">Phương thức thanh toán:</div>
+                                        <div style="font-weight: 600;">COD (Thanh toán khi nhận hàng)</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Cập nhật trạng thái:</label>
+                                    <select class="form-control status-select">
+                                        <option selected>Chờ xác nhận</option>
+                                        <option>Đang giao</option>
+                                        <option>Hoàn thành</option>
+                                        <option>Hủy</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Products -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Sản phẩm (3)</h3>
+                            </div>
+                            <div class="card-body" style="padding: 0;">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Đơn giá</th>
+                                            <th>Số lượng</th>
+                                            <th>Thành tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="product-cell">
+                                                    <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                    <div>
+                                                        <div class="product-name">Bắp cải hữu cơ (500g)</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>25.000đ</td>
+                                            <td>x2</td>
+                                            <td><strong>50.000đ</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="product-cell">
+                                                    <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                    <div>
+                                                        <div class="product-name">Cà rốt tươi (1kg)</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>28.000đ</td>
+                                            <td>x1</td>
+                                            <td><strong>28.000đ</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="product-cell">
+                                                    <img src="https://i.postimg.cc/xdZztWKq/demosanpham.jpg" alt="" class="product-img">
+                                                    <div>
+                                                        <div class="product-name">Cà chua Đà Lạt (1kg)</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>30.000đ</td>
+                                            <td>x2</td>
+                                            <td><strong>60.000đ</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div>
+                        <!-- Customer Info -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Thông tin khách hàng</h3>
+                            </div>
+                            <div class="card-body">
+                                <div style="margin-bottom: 15px;">
+                                    <div style="color: #64748b; font-size: 13px; margin-bottom: 5px;">Họ tên:</div>
+                                    <div style="font-weight: 600;">Nguyễn Văn A</div>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <div style="color: #64748b; font-size: 13px; margin-bottom: 5px;">Số điện thoại:</div>
+                                    <div style="font-weight: 600;"><a href="tel:0912345678">0912345678</a></div>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <div style="color: #64748b; font-size: 13px; margin-bottom: 5px;">Email:</div>
+                                    <div>nguyenvana@email.com</div>
+                                </div>
+                                <div>
+                                    <div style="color: #64748b; font-size: 13px; margin-bottom: 5px;">Địa chỉ giao hàng:</div>
+                                    <div>123 Đường ABC, Phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Summary -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Tổng kết đơn hàng</h3>
+                            </div>
+                            <div class="card-body">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                                    <span>Tạm tính:</span>
+                                    <strong>138.000đ</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                                    <span>Phí vận chuyển:</span>
+                                    <strong>18.000đ</strong>
+                                </div>
+                                <div style="border-top: 2px solid #e2e8f0; padding-top: 12px; display: flex; justify-content: space-between; font-size: 18px;">
+                                    <strong>Tổng cộng:</strong>
+                                    <strong style="color: #16a34a;">156.000đ</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Ghi chú</h3>
+                            </div>
+                            <div class="card-body">
+                                <p style="color: #64748b; font-style: italic;">Giao giờ hành chính, gọi trước 15 phút</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/admin/js/sidebarHeader.js"></script>
+    <script src="/admin/js/admin.js"></script>
+</body>
+</html>
