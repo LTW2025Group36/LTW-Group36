@@ -7,14 +7,14 @@ body {
     font-weight: bold;
     padding: 15px;
     color: #dedede;
-    background: linear-gradient(to right, rgb(24, 202, 32), rgba(195, 255, 0, 0.8));
+    background: linear-gradient(to right, rgb(24, 202, 32), rgba(101, 236, 34, 0.8));
 }
 main {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 50px 0; /* Thay vì ép full màn hình */
-    background: linear-gradient(to right, rgb(24, 202, 32), rgba(195, 255, 0, 0.8));
+    background: linear-gradient(to right, rgb(24, 202, 32), rgba(101, 236, 34, 0.8));
 }
 .login-container{
     background-color: white;
