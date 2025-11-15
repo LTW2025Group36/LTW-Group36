@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Danh mục - Admin Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="admin-layout">
+
+    <div id="admin-sidebar"></div>
+
+    <main class="admin-main">
+        <div id="admin-header"></div>
+
+        <div class="admin-content">
+            <div class="content-header">
+                <div>
+                    <h1 class="content-title">Quản lý Danh mục</h1>
+                    <div class="content-breadcrumb">
+                        <a href="/admin/index.html"><i class="fas fa-home"></i> Dashboard</a>
+                        <span>/</span>
+                        <span>Danh mục</span>
+                    </div>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-primary" onclick="openModal('addCategoryModal')">
+                        <i class="fas fa-plus"></i> Thêm danh mục
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Danh sách danh mục (12)</h3>
+                </div>
+                <div class="card-body" style="padding: 0;">
+                    <table class="admin-table">
+                        <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên danh mục</th>
+                            <th>Slug</th>
+                            <th>Số sản phẩm</th>
+                            <th>Trạng thái</th>
+                            <th style="width: 150px;">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><strong>Rau lá</strong></td>
+                            <td><code>rau-la</code></td>
+                            <td>45</td>
+                            <td><span class="badge success">Hiển thị</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger btn-delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><strong>Củ quả</strong></td>
+                            <td><code>cu-qua</code></td>
+                            <td>67</td>
+                            <td><span class="badge success">Hiển thị</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger btn-delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><strong>Trái cây</strong></td>
+                            <td><code>trai-cay</code></td>
+                            <td>89</td>
+                            <td><span class="badge success">Hiển thị</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger btn-delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><strong>Nấm - Măng</strong></td>
+                            <td><code>nam-mang</code></td>
+                            <td>23</td>
+                            <td><span class="badge success">Hiển thị</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger btn-delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><strong>Rau thơm</strong></td>
+                            <td><code>rau-thom</code></td>
+                            <td>34</td>
+                            <td><span class="badge secondary">Ẩn</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-outline"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger btn-delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal" id="addCategoryModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Thêm danh mục mới</h3>
+            <button class="modal-close" onclick="closeModal('addCategoryModal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form class="admin-form" style="padding: 0;">
+                <div class="form-group">
+                    <label>Tên danh mục <span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="VD: Rau lá" required>
+                </div>
+                <div class="form-group">
+                    <label>Slug</label>
+                    <input type="text" class="form-control" placeholder="rau-la">
+                    <div class="form-text">Để trống để tự động tạo</div>
+                </div>
+                <div class="form-group">
+                    <label>Mô tả</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="visible" checked>
+                        <label for="visible">Hiển thị trên trang chủ</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal('addCategoryModal')">Hủy</button>
+            <button class="btn btn-primary">Lưu danh mục</button>
+        </div>
+    </div>
+</div>
+<script src="/admin/js/sidebarHeader.js"></script>
+<script src="/admin/js/admin.js"></script>
+</body>
+</html>

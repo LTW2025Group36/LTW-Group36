@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập Admin - Farmily</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="https://i.postimg.cc/zBz59B8m/logo-backpng.png" alt="Farmily Logo">
+                <h1>Quản trị Farmily</h1>
+                <p>Đăng nhập để tiếp tục</p>
+            </div>
+
+            <form class="login-form" action="index.html" method="get">
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập</label>
+                    <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            class="form-control"
+                            placeholder="admin"
+                            required
+                            autocomplete="username"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="••••••••"
+                            required
+                            autocomplete="username"
+                    >
+                </div>
+
+                <div class="checkbox-wrapper">
+                    <input type="text" id="remember" name="remember" class="form-control">
+                    <label for="remember">Ghi nhớ đăng nhập</label>
+                </div>
+                
+                <button type="summit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i>Đăng nhập
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>Quên mật khẩu? Liên hệ quản trị hệ thống</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Đơn giản: Check demo credentials
+        document.querySelector('.login-form').addEventListener('submit', function(e) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Demo credentials
+            if (username === 'admin' && password === 'admin123') {
+                // Lưu session đơn giản
+                localStorage.setItem('adminLoggedIn', 'true');
+                localStorage.setItem('adminUser', 'Admin User');
+                // Chuyển trang
+                return true;
+            } else {
+                e.preventDefault();
+                alert('Sai tên đăng nhập hoặc mật khẩu!\n\nDemo: admin / admin123');
+            }
+        });
+    </script>
+</body>
+</html>

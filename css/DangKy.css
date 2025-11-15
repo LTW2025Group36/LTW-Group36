@@ -8,7 +8,7 @@ body {
     font-weight: bold;
     padding: 15px;
     color: #dedede;
-    background: linear-gradient(to right, rgb(24, 202, 32), rgba(195, 255, 0, 0.8));
+    background: linear-gradient(to right, rgb(24, 202, 32), rgba(101, 236, 34, 0.8));
 }
 main {
     width: 100%;
@@ -16,7 +16,7 @@ main {
     align-items: flex-start;
     min-height: 100vh;
     display: flex;
-    background: linear-gradient(to right, rgb(24, 202, 32), rgba(195, 255, 0, 0.8));
+    background: linear-gradient(to right, rgb(24, 202, 32), rgba(101, 236, 34, 0.8));
     padding: 20px 0;
 }
 .register-container{
