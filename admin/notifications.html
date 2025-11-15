@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thông báo - Admin Farmily</title>
-    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="/admin/css/sidebar.css">
+    <link rel="stylesheet" href="/admin/css/header.css">
+    <link rel="stylesheet" href="/admin/css/notifications.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .notifications-container {
@@ -506,7 +508,7 @@
             const item = event.target.closest('.notification-full-item');
             if (item) {
                 item.classList.remove('unread');
-                showNotification('Đã đánh dấu là đã đọc', 'success');
+                
             }
         }
 
@@ -516,8 +518,7 @@
             unreadItems.forEach(item => {
                 item.classList.remove('unread');
             });
-            showNotification('Đã đánh dấu tất cả là đã đọc', 'success');
-        }
+               }
     </script>
 </body>
 </html>
